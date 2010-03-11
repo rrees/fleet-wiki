@@ -12,3 +12,9 @@
 	(template {:title "Hello"
 		:content (html [:h1 "Fleet Wiki"]
 				[:p "A wiki backed by FleetDb"])}))
+
+(defn topic-page
+	[topic content]
+	(template
+		{:title topic
+		:content (html [:h1 topic] [:div content])}))

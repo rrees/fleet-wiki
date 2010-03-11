@@ -7,7 +7,8 @@
 	(GET "/"
 		(show-front-page))
 	(GET "/wiki/:topic"
-		(show-topic (:route-params :topic)))
+		(let [topic (-> request :route-params :topic)]
+			(show-topic topic)))
 	(POST "/wiki/:topic"
 		(update-topic :topic)))
 

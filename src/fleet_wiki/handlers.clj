@@ -3,7 +3,7 @@
 
 (defn show-topic
 	[topic]
-	(str topic))
+	(topic-page topic topic))
 
 (defn update-topic
 	[topic]
