@@ -15,8 +15,9 @@
 		showdown (load-showdown)
 		]
 		(. javascript eval "function makeHtml(input) { return input; }")
+		(. javascript eval "function toHtml(input) { return new Showdown.converter().makeHtml(input); }")
 		(. javascript eval showdown)
 		(println markdown)
-		(println (str "Output: " (. javascript invokeFunction "makeHtml" (to-array [markdown]))))))
+		(println (str "Output: " (. javascript invokeFunction "toHtml" (to-array [markdown]))))))
 
 (to-html "*Hello* _World_")
