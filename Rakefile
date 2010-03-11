@@ -5,7 +5,6 @@ code_dirs = ["src"]
 task :default => [:run]
 
 jars = [] << Dir.new("lib").entries.select{|f| f =~ /.*.jar/}.map {|jar| File.join('lib', jar)}
-puts jars
 
 task :run do
   run = "java -cp src:#{jars.join(':')} clojure.main src/fleet_wiki/server.clj"
