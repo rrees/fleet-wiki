@@ -13,11 +13,10 @@
 		[sem (new ScriptEngineManager)
 		javascript (. sem getEngineByExtension "js")
 		showdown (load-showdown)
+		showdown-call "function toHtml(input) { return new Showdown.converter().makeHtml(input); }"
 		]
-		(. javascript eval "function makeHtml(input) { return input; }")
-		(. javascript eval "function toHtml(input) { return new Showdown.converter().makeHtml(input); }")
+		(. javascript eval showdown-call)
 		(. javascript eval showdown)
-		(println markdown)
-		(println (str "Output: " (. javascript invokeFunction "toHtml" (to-array [markdown]))))))
+		(. javascript invokeFunction "toHtml" (to-array [markdown]))))
 
-(to-html "*Hello* _World_")
+;;(println (to-html "*Hello* _World_"))
