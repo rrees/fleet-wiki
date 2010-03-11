@@ -4,13 +4,8 @@ code_dirs = ["src"]
 
 task :default => [:run]
 
-puts home_dir
-compojure_home= File.join(home_dir, 'code', 'java', 'clojure', 'compojure')
-puts "#{compojure_home}"
-
-jars = [] << File.join(compojure_home, 'compojure.jar')
-
-jars << Dir.new("#{compojure_home}/deps").entries.select{|f| f =~ /.*.jar/}.map {|jar| File.join(compojure_home, 'deps', jar)}
+jars = [] << Dir.new("lib").entries.select{|f| f =~ /.*.jar/}.map {|jar| File.join('lib', jar)}
+puts jars
 
 task :run do
   run = "java -cp src:#{jars.join(':')} clojure.main src/fleet_wiki/server.clj"
@@ -18,3 +13,7 @@ task :run do
   system(run)
 end
 
+task :fleet_client do
+	fleet_client = "java -cp src:lib/fleetdb-client-standalone.jar:lib/clojure.jar clojure.main"
+	system(fleet_client)
+end
