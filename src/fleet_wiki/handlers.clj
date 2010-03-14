@@ -13,3 +13,7 @@
 (defn show-front-page
 	[]
 	(index-page))
+
+(defn edit-topic
+	[topic]
+	(edit-page))

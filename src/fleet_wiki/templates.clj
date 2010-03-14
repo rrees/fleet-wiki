@@ -18,3 +18,9 @@
 	(template
 		{:title topic
 		:content (html [:h1 topic] [:div content])}))
+
+(defn edit-page
+	[]
+	(template
+		{:title "Edit"
+		:content (html [:h1 "Edit " [:div [:p "Edit some stuff"]]])}))
