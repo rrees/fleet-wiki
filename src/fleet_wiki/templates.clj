@@ -1,5 +1,5 @@
 (ns fleet-wiki.templates
-	(:use [compojure :only (html)]))
+	(:use compojure.html))
 
 (defn template
 	[content]
@@ -23,4 +23,9 @@
 	[]
 	(template
 		{:title "Edit"
-		:content (html [:h1 "Edit "] [:div [:p "Edit some stuff"]])}))
+		:content (html
+			[:h1 "Edit "]
+			[:div [:p "Edit some stuff"]
+				(form-to [:post "/wiki/topic"]
+					(text-area "content")
+					(submit-button "Contribute knowledge"))])}))

@@ -12,6 +12,10 @@ task :run do
   system(run)
 end
 
+task :shell do
+	system("java -cp src:#{jars.join(':')} clojure.main")
+end
+
 task :fleet_client do
 	fleet_client = "java -cp src:lib/fleetdb-client-standalone.jar:lib/clojure.jar clojure.main"
 	system(fleet_client)
