@@ -23,4 +23,4 @@
 	[]
 	(template
 		{:title "Edit"
-		:content (html [:h1 "Edit " [:div [:p "Edit some stuff"]]])}))
+		:content (html [:h1 "Edit "] [:div [:p "Edit some stuff"]])}))
