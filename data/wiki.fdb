@@ -1,1 +1,5 @@
 ["insert","wiki",{"id":"pixies","content":"*Pixies!*"}]
+["checked-write",["select","wiki",{"where":["=","topic","lemons"],"only":"revision"}],[1],["update","wiki",{"topic":"lemons","revision":2,"content":"*Lemons!*"}]]
+["insert","wiki",{"id":"lemons","content":"*Lemons*"}]
+["update","wiki",{"content":"*Lemons!*"},{"where":["=","id","lemons"]}]
+["insert","wiki",{"id":"melons","content":"_Melons_ have juice"}]
