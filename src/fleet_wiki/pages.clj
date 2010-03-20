@@ -10,11 +10,11 @@
 (defn save-page
 	[topic content]
 	(dosync
-		( if (page-exists)
+		( if (page-exists topic)
 			(client ["update" "wiki" {"content" content} {"where" ["=" "id" topic]}])
-			(client ["insert" "wiki" {"id" topic "content" content}]))))
+			(client ["insert" "wiki" {:id topic :content content}]))))
 
 (defn read-page
 	[topic]
 	(if (page-exists topic)
-		(client ["select" "wiki" {"where" ["=" "id" topic]}])))
+		(first(client ["select" "wiki" {"where" ["=" "id" topic]}]))))
