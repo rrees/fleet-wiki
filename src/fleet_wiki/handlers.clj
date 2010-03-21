@@ -9,7 +9,8 @@
 
 (defn update-topic
 	[topic submitted-content]
-	(str "Update " topic submitted-content))
+	(fleet-wiki.pages/save-page topic submitted-content)
+	(redirect-to (str "/wiki/" topic)))
 
 (defn show-front-page
 	[]
