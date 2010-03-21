@@ -8,8 +8,8 @@
 	(topic-page topic (to-html (get (fleet-wiki.pages/read-page topic) "content"))))
 
 (defn update-topic
-	[topic]
-	(str "Update " topic))
+	[topic submitted-content]
+	(str "Update " topic submitted-content))
 
 (defn show-front-page
 	[]
@@ -18,4 +18,4 @@
 (defn edit-topic
 	[topic]
 	(let [content (get (fleet-wiki.pages/read-page topic) "content")]
-	(if content (edit-page content) (edit-page))))
+	(if content (edit-page topic content) (edit-page topic))))
