@@ -19,13 +19,16 @@
 		{:title topic
 		:content (html [:h1 topic] [:div content])}))
 
-(defn edit-page
-	[]
+(defn edit-template
+	[form]
 	(template
 		{:title "Edit"
 		:content (html
 			[:h1 "Edit "]
-			[:div [:p "Edit some stuff"]
-				(form-to [:post "/wiki/topic"]
+			[:div [:p "Edit some stuff"] form])}))
+
+(defn edit-page
+	[]
+	(edit-template (form-to [:post "/wiki/topic"]
 					(text-area "content")
-					(submit-button "Contribute knowledge"))])}))
+					(submit-button "Contribute knowledge"))))
