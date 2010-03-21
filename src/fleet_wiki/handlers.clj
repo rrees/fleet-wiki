@@ -17,4 +17,5 @@
 
 (defn edit-topic
 	[topic]
-	(edit-page))
+	(let [content (get (fleet-wiki.pages/read-page topic) "content")]
+	(if content (edit-page content) (edit-page))))

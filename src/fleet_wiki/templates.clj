@@ -28,7 +28,8 @@
 			[:div [:p "Edit some stuff"] form])}))
 
 (defn edit-page
-	[]
+	([]
 	(edit-template (form-to [:post "/wiki/topic"]
 					(text-area "content")
 					(submit-button "Contribute knowledge"))))
+	([content] (edit-template (form-to [:post "wiki/topic"] (text-area "content" content) (submit-button "Contribute knowledge")))))
