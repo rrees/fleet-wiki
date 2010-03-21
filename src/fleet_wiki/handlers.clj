@@ -1,7 +1,8 @@
 (ns fleet-wiki.handlers
 	(:use fleet-wiki.templates)
 	(:use [fleet-wiki.markdown :only (to-html)])
-	(:require fleet-wiki.pages))
+	(:require fleet-wiki.pages)
+	(:require compojure.http.helpers))
 
 (defn show-topic
 	[topic]
@@ -10,7 +11,7 @@
 (defn update-topic
 	[topic submitted-content]
 	(fleet-wiki.pages/save-page topic submitted-content)
-	(redirect-to (str "/wiki/" topic)))
+	(compojure.http.helpers/redirect-to (str "/wiki/" topic)))
 
 (defn show-front-page
 	[]
