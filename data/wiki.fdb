@@ -5,3 +5,5 @@
 ["insert","wiki",{"id":"melons","content":"_Melons_ have juice"}]
 ["insert","wiki",{"id":"politics","content":"The interaction of the city"}]
 ["update","wiki",{"content":"_Melons_ have juice."},{"where":["=","id","melons"]}]
+["update","wiki",{"content":"_Melons_ have juice.\r\n\r\nThey come in several varieties"},{"where":["=","id","melons"]}]
+["update","wiki",{"content":"_Melons_ have juice.\r\n\r\nThey come in several varieties."},{"where":["=","id","melons"]}]

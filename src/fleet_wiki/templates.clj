@@ -17,7 +17,7 @@
 	[topic content]
 	(template
 		{:title topic
-		:content (html [:h1 topic] [:div content])}))
+		:content (html [:h1 topic] [:div content] [:p [:a {:href (str "/wiki/" topic "/edit")} "Edit this page"]])}))
 
 (defn edit-template
 	[form]
