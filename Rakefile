@@ -20,3 +20,7 @@ task :fleet_client do
 	fleet_client = "java -cp src:lib/fleetdb-client-standalone.jar:lib/clojure.jar clojure.main"
 	system(fleet_client)
 end
+
+task :fleet_server do
+  puts "java -cp lib/fleetdb-standalone.jar fleetdb.server -f data/wiki.fdb &"
+end
