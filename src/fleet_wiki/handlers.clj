@@ -2,16 +2,17 @@
 	(:use fleet-wiki.templates)
 	(:use [fleet-wiki.markdown :only (to-html)])
 	(:require fleet-wiki.pages)
-	(:require compojure.http.helpers))
+	(:use [compojure.http.helpers :only (redirect-to)]))
 
 (defn show-topic
 	[topic]
-	(topic-page topic (to-html (get (fleet-wiki.pages/read-page topic) "content"))))
+	(let [content (get (fleet-wiki.pages/read-page topic) "content")]
+	(if content (topic-page topic (to-html content)) (redirect-to (str "/wiki/" topic "/edit")))))
 
 (defn update-topic
 	[topic submitted-content]
 	(fleet-wiki.pages/save-page topic submitted-content)
-	(compojure.http.helpers/redirect-to (str "/wiki/" topic)))
+	(redirect-to (str "/wiki/" topic)))
 
 (defn show-front-page
 	[]
