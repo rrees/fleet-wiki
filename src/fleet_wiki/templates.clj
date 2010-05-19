@@ -1,5 +1,5 @@
 (ns fleet-wiki.templates
-	(:use compojure.html))
+	(:use hiccup.core hiccup.form-helpers))
 
 (defn template
 	[content]
@@ -24,8 +24,8 @@
 	(template
 		{:title (str "Edit: " topic)
 		:content (html
-			[:h1 "Edit "]
-			[:div [:p "Edit some stuff"] form])}))
+			[:h1 "Edit " topic]
+			[:div [:p "Edit the content "] form])}))
 
 (defn edit-page
 	([topic]
