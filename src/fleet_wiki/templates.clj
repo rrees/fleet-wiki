@@ -25,11 +25,12 @@
 
 (defn edit-template
 	[topic form]
+	(let [display-topic (capitalize topic)]
 	(template
-		{:title (str "Edit: " topic)
+		{:title (str "Edit: " display-topic)
 		:content (html
-			[:h1 "Edit " topic]
-			[:div [:p "Edit the content "] form])}))
+			[:h1 "Edit " display-topic]
+			[:div form])})))
 
 (defn edit-page
 	([topic]
