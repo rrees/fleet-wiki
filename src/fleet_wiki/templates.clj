@@ -4,7 +4,7 @@
 (defn template
 	[content]
 	(html [:html
-		[:head [:title (:title content)]]
+		[:head [:title (:title content)] [:link {:type "text/css" :rel "StyleSheet" :href "/css/std.css"}]]
 		[:body (:content content)]]))
 
 (defn index-page
