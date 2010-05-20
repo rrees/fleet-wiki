@@ -1,5 +1,6 @@
 (ns fleet-wiki.templates
-	(:use hiccup.core hiccup.form-helpers))
+	(:use hiccup.core hiccup.form-helpers)
+	(:use [clojure.contrib.str-utils2 :only (capitalize)]))
 
 (defn template
 	[content]
@@ -15,9 +16,12 @@
 
 (defn topic-page
 	[topic content]
+	(let [display-topic (capitalize topic)]
 	(template
-		{:title topic
-		:content (html [:h1 topic] [:div content] [:p [:a {:href (str "/wiki/" topic "/edit")} "Edit this page"]])}))
+		{:title display-topic
+		:content (html [:h1 display-topic]
+				[:div content]
+					[:p [:a {:href (str "/wiki/" topic "/edit")} "Edit this page"]])})))
 
 (defn edit-template
 	[topic form]
