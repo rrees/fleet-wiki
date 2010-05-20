@@ -1,2 +1,19 @@
 
-p {color: pink;}
+body {
+	margin-left: 10em;
+	width: 35em;
+	font-family: san-serif;
+}
+
+.content-editor {
+	width: 40em;
+	min-height: 8em;
+}
+
+.submit {
+	padding-top: 1em;
+}
+
+.submit input {
+	float: right;
+}

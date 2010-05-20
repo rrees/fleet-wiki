@@ -29,7 +29,7 @@
 
 (defn edit-page
 	([topic]
-	(edit-template topic (form-to [:post (str "/wiki/" topic)]
-					(text-area "content")
-					(submit-button "Contribute knowledge"))))
-	([topic content] (edit-template topic (form-to [:post (str "/wiki/" topic)] (text-area "content" content) (submit-button "Contribute knowledge")))))
+	(edit-page topic ""))
+	([topic content] (edit-template topic (form-to [:post (str "/wiki/" topic)]
+		[:div {:class "content"} (text-area {:class "content-editor"} "content" content)]
+		[:div {:class "submit"} (submit-button "Contribute knowledge")]))))
